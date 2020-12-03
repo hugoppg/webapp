@@ -8,7 +8,6 @@ Created on Sat Nov 28 14:11:42 2020
 import streamlit as st
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 import plotly.figure_factory as ff
 
 st.title("streamlit demo")
@@ -42,10 +41,6 @@ sub_df = df[['id', 'price']]
 sub_df = sub_df.groupby('id').agg(sum)
 st.line_chart(sub_df["price"])
 
-st.title('使用Matplotlib的api画图')
-fig, ax = plt.subplots()
-ax.hist(df['price'], bins=20)
-st.pyplot(fig)
 
 st.title('使用plotly的api画图')
 fig = ff.create_distplot([sub_df['price']], group_labels = ['price'], bin_size=50)
